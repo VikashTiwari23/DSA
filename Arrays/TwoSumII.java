@@ -7,10 +7,12 @@ public class TwoSumII {
         for(int i = 0 ;i < nums.length; i++){
             int current = target - nums[i];
             int sum = nums[left]+nums[right];
-            if(sum<current) left++;
-            if(sum>current) right--;
-            if(sum==current){
-                return new int[]{left+1,right+1};
+            while(left<=right){
+                if(sum<current) left++;
+                if(sum>current) right--;
+                if(sum==current){
+                    return new int[]{left+1,right+1};
+                }
             }
         }
         return null;
